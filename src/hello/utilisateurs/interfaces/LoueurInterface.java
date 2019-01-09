@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package hello.utilisateurs.interfaces;
+
+
+import hello.livre.Livre;
+import hello.utilisateurs.Utilisateur;
+
+/**
+ * @author Dell
+ *
+ */
+public interface LoueurInterface {
+	public Utilisateur addBook(Livre livre);
+	public Utilisateur loan(Livre livre);
+	public Utilisateur  calculeCotisation(Livre livre);
+
+}
