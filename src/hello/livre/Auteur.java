@@ -3,7 +3,12 @@
  */
 package hello.livre;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
+
+import hello.livre.exceptions.Birthdateexceptions;
 
 /**
  * @author Dell
@@ -26,14 +31,41 @@ public class Auteur {
 	
 	
 	// Ce qu'on cree ici est un static class factory. Un design pattern
-	public static Auteur getAuteur(String nom, String prenom, Date naissance) // comme si j'avais ecrit une fonction
+	public static Auteur getAuteur(String nom, String prenom, Date naissance) throws Birthdateexceptions // comme si j'avais ecrit une fonction
 	{
 		Date datetoday = new Date(); 
-		if (naissance.before(datetoday) ) {
+		if (naissance.after(datetoday) ) {
+			throw new Birthdateexceptions();
+		}
+		else {
 			Auteur auteur = new Auteur(nom,prenom,naissance);
 			return auteur;
 		}
-		else return null;
+			
+		
+		
+	}
+	public static Auteur getAuteur() throws ParseException, Birthdateexceptions {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Nom de l'auteur : ");
+		String nom = scanner.nextLine();
+		scanner.reset();
+		
+		System.out.println("Prenom de l'auteur : ");
+		String prenom = scanner.nextLine();
+		scanner.reset();
+		System.out.println("Date de Naissance de l'auteur : ");
+		String naissance = scanner.nextLine();
+		scanner.reset();
+		
+		scanner.close();
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = format.parse(naissance);
+		return getAuteur(nom,prenom,date);
+		
+		
 		
 	}
 	

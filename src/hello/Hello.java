@@ -6,10 +6,14 @@ package hello;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
 import java.util.Scanner;
 
 import hello.livre.Auteur;
 import hello.livre.Livre;
+import hello.livre.exceptions.Birthdateexceptions;
 
 /**
  * @author Dubluc
@@ -25,8 +29,9 @@ public class Hello {
 	 * "String" object de type chaine
 	 * "String[]" tableau de type chaine
 	 * @throws ParseException 
+	 * @throws Birthdateexceptions 
 	 */
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) throws ParseException, Birthdateexceptions {
 		// TODO Auto-generated method stub
 		System.out.println("Hello Java");
 		
@@ -112,8 +117,21 @@ public class Hello {
 		sc.close();
 		
 		
-		
+		  List l = new LinkedList();
+		    l.add(12);
+		    l.add("toto ! !");
+		    l.add(12.20f);
+		    l.add(12.20);
 
+		    for(int i = 0; i < l.size(); i++)
+		      System.out.println("Élément à l'index " + i + " = " + l.get(i));
+
+		      System.out.println("\n \tParcours avec un itérateur ");
+		      System.out.println("-----------------------------------");
+		      ListIterator li = l.listIterator();
+
+		      while(li.hasNext())
+		        System.out.println(li.next());
 		
 		
 	}
