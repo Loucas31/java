@@ -20,6 +20,7 @@ import hello.utilisateurs.interfaces.LoueurInterface;
 // Interface fonctionnelle
 interface GetSize{
 	public int getSize(HashMap<Livre,Integer>livres, boolean getStock );
+	//public int getSize(HashMap<Livre,Integer>livres);
 }
 
 

@@ -25,6 +25,7 @@ public class BiblioAuteurs {
 		this.message = " liste des auteurs \n";
 		System.out.println(this.message);
 		this.listeauteurs.forEach( (a) -> this.message += a.nom() + "\n");
+		
 		return this.message;
 	}
 	
